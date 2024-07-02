@@ -172,7 +172,7 @@ def chatbot_response(user_input):
     return "I'm sorry, I didn't understand that. Can you please rephrase?"
 
 # Streamlit UI
-st.title("Python rule based Chatbot")
+st.title("Python Rule-based Chatbot")
 
 # Create two tabs
 tab1, tab2 = st.tabs(["**Chatbot**", "**Sample Queries**"])
@@ -205,14 +205,7 @@ with tab1:
         else:
             response = chatbot_response(user_input)
             st.session_state.history.append((user_input, response))
-            st.markdown(f"""
-                <div style="text-align: right; color: #4CAF50; padding: 10px; border-radius: 10px;">
-                    <strong>User:</strong> {user_input}
-                </div>
-                <div style="text-align: left; color: #2196F3; padding: 10px; border-radius: 10px;">
-                    <strong>Chatbot:</strong> {response}
-                </div>
-            """, unsafe_allow_html=True)
+            st.experimental_rerun()
 
 with tab2:
     st.write("Here are some sample queries you can try with the chatbot:")
